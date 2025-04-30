@@ -1,4 +1,4 @@
-# Experiment 7: AI-Powered Smart Contract for Decentralized Negotiation
+![Screenshot 2025-04-30 085547](https://github.com/user-attachments/assets/f9983653-b648-4801-96f0-d94857d96940)![Screenshot 2025-04-30 085503](https://github.com/user-attachments/assets/4f8e5485-78f6-42d5-b0fe-378f1f1cf171)![Screenshot 2025-04-30 085503](https://github.com/user-attachments/assets/94c85498-9cde-4eb9-8c8d-96e4a0f7ec9f)# Experiment 7: AI-Powered Smart Contract for Decentralized Negotiation
 # NAME:SHAGILAN U
 # REG.NO:212224040303
 # Aim:
@@ -117,5 +117,13 @@ Can be extended to AI oracles for real-time market data.
 Inspired by AI-enhanced commerce and eBay-like decentralized auctions.
 
 # RESULT:
+![Screenshot 2025-04-30 085441](https://github.com/user-attachments/assets/0c7d7803-f0bd-4a6d-a7b1-fda6fa468d5a)
+![Screen![Screenshot 2025-04-30 085547](https://github.com/user-attachments/assets/2dacf01c-f2a9-479b-b395-cc81c2773952)
+shot 2025-04-30 085503](https://github.com/user-attachments/assets/d200260f-236a-476c-939d-3c14446bb7d0)
+
+
+
+
+
 
 
