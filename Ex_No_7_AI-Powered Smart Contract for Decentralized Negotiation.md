@@ -1,4 +1,6 @@
 # Experiment 7: AI-Powered Smart Contract for Decentralized Negotiation
+# NAME:SHAGILAN U
+# REG.NO:212224040303
 # Aim:
 # To create a smart contract that integrates AI logic for automated negotiation in decentralized commerce. The contract adjusts price and conditions dynamically based on real-time market trends using an on-chain AI model.
 
