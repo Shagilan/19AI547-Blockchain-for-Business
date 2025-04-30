@@ -1,4 +1,3 @@
-![Screenshot 2025-04-30 085547](https://github.com/user-attachments/assets/f9983653-b648-4801-96f0-d94857d96940)![Screenshot 2025-04-30 085503](https://github.com/user-attachments/assets/4f8e5485-78f6-42d5-b0fe-378f1f1cf171)![Screenshot 2025-04-30 085503](https://github.com/user-attachments/assets/94c85498-9cde-4eb9-8c8d-96e4a0f7ec9f)# Experiment 7: AI-Powered Smart Contract for Decentralized Negotiation
 # NAME:SHAGILAN U
 # REG.NO:212224040303
 # Aim:
