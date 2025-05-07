@@ -20,6 +20,17 @@ Store hashed lattice-based signatures instead of traditional Ethereum signatures
 ## Step 3: Secure Transactions
 Users sign transactions using lattice cryptographic proofs.
 
+ Step 4: Hybrid Cryptographic Transition
+Support a dual-signature system (ECDSA + lattice-based) during migration, ensuring backward compatibility while introducing quantum resistance.
+
+ Step 5: Test Post-Quantum Schemes on Testnets
+Deploy and test lattice-based cryptography on Ethereum testnets or sidechains to evaluate performance, gas costs, and compatibility.
+
+ Step 6: Educate Users on Key Management
+Provide tools and documentation to help users safely generate, store, and use their post-quantum keys without compromising security.
+
+
+
 
 The smart contract verifies the proof before allowing transactions.
 
