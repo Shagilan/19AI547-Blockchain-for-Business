@@ -18,7 +18,11 @@ The contract verifies if a vote belongs to a registered voter but does not revea
 Step 4: Vote Counting
 Once voting ends, the contract reveals the final tally without linking votes to individuals.
 
+step 5: Prevent Double Voting
+Implement a mechanism to ensure each registered voter can vote only once using their commitment, without revealing identity.
 
+🔐 Step 6: Anonymity Set Management
+Maintain an anonymity set to group all eligible voters, making it hard to trace any individual’s vote.
 
 # Program:
 ```
