@@ -10,6 +10,15 @@ A user registers with their Ethereum public key (instead of a password).
 Step 2: Login Process
 When logging in, the user signs a random challenge message using their private key.
 
+Step 3: Signature Verification
+The backend or smart contract verifies the signed challenge using the user’s public key to confirm their identity.
+
+ Step 4: Nonce Management
+Generate a new random nonce (challenge) each time a user attempts to log in to prevent replay attacks.
+
+ Step 5: Session Token Generation
+After successful verification, issue a temporary session token (JWT) for authenticated access without needing to sign every request.
+
 
 The smart contract verifies the signature using the user’s public key.
 
