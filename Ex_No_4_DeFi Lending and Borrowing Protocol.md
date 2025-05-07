@@ -23,6 +23,18 @@ If a borrower’s collateral value drops below a certain liquidation threshold, 
 Step 3: Allow Liquidation
 If collateral < liquidation threshold, liquidators can repay the borrower's debt and claim their collateral at a discount.
 
+Step 4: Dynamic Interest Rate Model
+Use an algorithm (e.g., kinked interest rate curve) that adjusts borrow and deposit rates dynamically based on the utilization ratio of the pool. This incentivizes balanced liquidity and discourages over-borrowing or excess idle funds.
+
+Step 5: Collateral Price Feed Integration
+Integrate with a decentralized oracle (like Chainlink) to fetch real-time collateral asset prices, ensuring accurate and tamper-proof valuation for overcollateralization and liquidation logic.
+
+Step 6: Health Factor Monitoring
+Introduce a health factor metric for borrowers, calculated from collateral and debt values. If the health factor drops below 1, the position becomes eligible for liquidation.
+
+Step 7: Emergency Pause Function
+Add an emergency pause mechanism (e.g., only accessible by a multisig DAO) to temporarily halt lending, borrowing, or liquidations in case of bugs, oracle failure, or an economic attack.
+
 
 
 Program:
