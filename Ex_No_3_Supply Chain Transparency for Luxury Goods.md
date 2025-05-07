@@ -12,6 +12,20 @@ The ownership of the product can be transferred securely.
 
 Buyers can verify the product’s authenticity.
 
+Tamper-Proof Timestamping
+Each transaction or checkpoint update is recorded with a blockchain timestamp, ensuring that no historical data can be altered and the timeline of the product’s journey is verifiable.
+
+ Role-Based Access Control
+Implement smart contract permissions so only authorized entities (e.g., manufacturer, distributor, retailer) can update specific fields, preserving data integrity across the supply chain.
+
+ QR Code or NFC Integration
+Attach a QR code or NFC tag to each product that links to its blockchain record, allowing real-time authentication by scanning through a mobile app or web portal.
+
+Dispute Resolution Mechanism
+Include a smart contract-based system for raising and resolving disputes, such as ownership challenges or counterfeit claims, through multi-signature approvals or arbitration protocols.
+
+
+
 
 # Program:
 ```
