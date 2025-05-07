@@ -59,5 +59,11 @@ Uses Ethereum's built-in cryptographic functions.
 
 
 Inspired by Web3 login solutions like MetaMask authentication.
+## OUTPUT:
+![Screenshot 2025-05-07 082316](https://github.com/user-attachments/assets/8be484b3-785f-4606-9fca-d9b3830a4dad)
+![Screenshot 2025-05-07 082539](https://github.com/user-attachments/assets/506fabb1-9c94-4448-a8f6-4e732ed8a216)
+![Screenshot 2025-05-07 082548](https://github.com/user-attachments/assets/d5b831b8-8f4a-4d05-ad3e-ed97cd756124)
+![Screenshot 2025-05-07 082558](https://github.com/user-attachments/assets/3cbe4582-3e3b-45a2-8f23-ddd2d120b67e)
 
 # RESULT: 
+Thus, a Blockchain-Based Passwordless Authentication has been successfully built and implemented on Remix - Ethereum IDE.
