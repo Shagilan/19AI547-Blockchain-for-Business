@@ -94,4 +94,8 @@ Introduces risk management: overcollateralization and liquidation.
 Directly related to DeFi protocols like Aave and Compound.
 
 # RESULT : 
+![Screenshot 2025-05-07 082247](https://github.com/user-attachments/assets/a52b9693-7587-4205-a7ce-a32cea4651a0)
+![Screenshot 2025-05-07 082256](https://github.com/user-attachments/assets/953bf77e-45e5-4b30-b2f8-fa6d43185d83)
+![Screenshot 2025-05-07 082305](https://github.com/user-attachments/assets/85b635eb-4282-4563-81cb-d638e1cbeaac)
+![Screenshot 2025-05-07 082316](https://github.com/user-attachments/assets/0eed542b-5099-464f-b5b2-1c88c02139e6)
 
