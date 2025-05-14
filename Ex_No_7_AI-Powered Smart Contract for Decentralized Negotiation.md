@@ -115,10 +115,14 @@ Can be extended to AI oracles for real-time market data.
 
 Inspired by AI-enhanced commerce and eBay-like decentralized auctions.
 
-# RESULT:
+# output:
 ![Screenshot 2025-04-30 085547](https://github.com/user-attachments/assets/e9d221bc-c9e6-4331-86d0-0ae87c8be86e)
 ![Screenshot 2025-04-30 085503](https://github.com/user-attachments/assets/2dffcc1a-b970-47ab-a3ba-3de718cb3a4d)
 ![Screenshot 2025-04-30 085441](https://github.com/user-attachments/assets/4ab269d7-605b-420d-9bb2-388b006e70b6)
+
+
+## RESULT:
+Thus, a AI-Powered Smart Contract for Decentralized Negotiation has been successfully built and implemented on Remix - Ethereum IDE.
 
 
 
