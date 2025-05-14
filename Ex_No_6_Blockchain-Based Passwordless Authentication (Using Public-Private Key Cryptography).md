@@ -1,17 +1,27 @@
-# Experiment 6: Blockchain-Based Passwordless Authentication (Using Public-Private Key Cryptography)
+# Experiment 4: DeFi Lending and Borrowing Protocol
 # Aim:
-To implement a secure passwordless authentication system using public-private key cryptography on Ethereum. This prevents phishing and password leaks.
+To build a decentralized lending protocol where users can deposit assets to earn interest and borrow assets by providing collateral. This experiment introduces concepts like overcollateralization, liquidity pools, and interest accrual in DeFi.
 
 # Algorithm:
-Step 1: User Registration
-A user registers with their Ethereum public key (instead of a password).
+Step 1: Setup Lending and Borrowing Mechanism
+Users deposit ETH into the contract as liquidity.
 
 
-Step 2: Login Process
-When logging in, the user signs a random challenge message using their private key.
+Depositors receive interest based on their deposits.
 
 
-The smart contract verifies the signature using the user’s public key.
+Borrowers can borrow ETH but must provide collateral (e.g., 150% of the borrowed amount).
+
+
+Interest on borrowed funds is calculated dynamically based on utilization rate.
+
+
+Step 2: Implement Overcollateralization
+If a borrower’s collateral value drops below a certain liquidation threshold, their collateral is liquidated to repay the debt.
+
+
+Step 3: Allow Liquidation
+If collateral < liquidation threshold, liquidators can repay the borrower's debt and claim their collateral at a discount.
 
 
 
@@ -20,97 +30,77 @@ The smart contract verifies the signature using the user’s public key.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-contract PasswordlessAuthDemo {
-    struct User {
-        bool registered;
-        address pubKey;
-        bytes32 privateKey; // Fake private key for demo
+contract DeFiLending {
+    address public owner;
+    uint256 public interestRate = 5; // 5% interest per cycle
+    uint256 public liquidationThreshold = 150; // 150% collateralization
+    mapping(address => uint256) public deposits;
+    mapping(address => uint256) public borrowed;
+    mapping(address => uint256) public collateral;
+
+    event Deposited(address indexed user, uint256 amount);
+    event Borrowed(address indexed user, uint256 amount, uint256 collateral);
+    event Liquidated(address indexed user, uint256 debtRepaid, uint256 collateralSeized);
+
+    constructor() {
+        owner = msg.sender;
     }
 
-    mapping(address => User) public users;
-    bytes32 public latestChallenge;
-
-    event UserRegistered(address user, address pubKey, bytes32 privateKey);
-    event ChallengeGenerated(bytes32 challenge);
-    event SignatureGenerated(bytes32 hash, uint8 v, bytes32 r, bytes32 s);
-
-    // Step 1: Register user
-    function registerUser() public {
-        require(!users[msg.sender].registered, "Already registered");
-
-        // Fake public/private keys
-        address fakePubKey = msg.sender;
-        bytes32 fakePrivateKey = keccak256(abi.encodePacked(msg.sender, block.timestamp));
-
-        users[msg.sender] = User({
-            registered: true,
-            pubKey: fakePubKey,
-            privateKey: fakePrivateKey
-        });
-
-        emit UserRegistered(msg.sender, fakePubKey, fakePrivateKey);
+    function deposit() public payable {
+        require(msg.value > 0, "Deposit must be greater than zero");
+        deposits[msg.sender] += msg.value;
+        emit Deposited(msg.sender, msg.value);
     }
 
-    // Step 2: Generate random challenge
-    function generateChallenge() public returns (bytes32) {
-        require(users[msg.sender].registered, "User not registered");
-        latestChallenge = keccak256(abi.encodePacked(block.timestamp, msg.sender));
-        emit ChallengeGenerated(latestChallenge);
-        return latestChallenge;
+    function borrow(uint256 amount) public payable {
+        require(msg.value >= (amount * liquidationThreshold) / 100, "Not enough collateral");
+        borrowed[msg.sender] += amount;
+        collateral[msg.sender] += msg.value;
+        payable(msg.sender).transfer(amount);
+        emit Borrowed(msg.sender, amount, msg.value);
     }
 
-    // Step 3: "Sign" the challenge (fake signing)
-    function generateSignature() public returns (bytes32 hash, uint8 v, bytes32 r, bytes32 s) {
-        require(users[msg.sender].registered, "User not registered");
-        
-        hash = latestChallenge;
-        bytes32 combined = keccak256(abi.encodePacked(users[msg.sender].privateKey, hash));
-        
-        // Fake values for r, s, v
-        r = bytes32(uint256(uint160(users[msg.sender].pubKey)) << 96);
-        s = combined;
-        v = 27;
+    function liquidate(address borrower) public {
+        require(collateral[borrower] < (borrowed[borrower] * liquidationThreshold) / 100, "Not eligible for liquidation");
+        uint256 debt = borrowed[borrower];
+        uint256 seizedCollateral = collateral[borrower];
 
-        emit SignatureGenerated(hash, v, r, s);
-
-        return (hash, v, r, s);
-    }
-
-    // Step 4: Authenticate
-    function authenticate(bytes32 hash, uint8 v, bytes32 r, bytes32 s) public view returns (bool) {
-        require(users[msg.sender].registered, "User not registered");
-
-        bytes32 expectedCombined = keccak256(abi.encodePacked(users[msg.sender].privateKey, hash));
-        bytes32 expectedR = bytes32(uint256(uint160(users[msg.sender].pubKey)) << 96);
-        uint8 expectedV = 27;
-
-        if (r == expectedR && s == expectedCombined && v == expectedV) {
-            return true;
-        } else {
-            return false;
-        }
+        borrowed[borrower] = 0;
+        collateral[borrower] = 0;
+        payable(msg.sender).transfer(seizedCollateral);
+        emit Liquidated(borrower, debt, seizedCollateral);
     }
 }
+
 ```
-
 # Expected Output:
-Users can register without a password.
+1.Users can deposit ETH and earn interest.
 
 
-Users sign a challenge with their private key for authentication.
+2.Users can borrow ETH by providing collateral.
 
 
-The smart contract verifies signatures to confirm identity.
+3.If collateral < 150% of borrowed amount, liquidators can seize the collateral.
 
 
 
 # High-Level Overview:
-Eliminates password hacks & phishing attacks.
+1.Teaches key DeFi concepts: lending, borrowing, collateral, liquidation.
 
 
-Uses Ethereum's built-in cryptographic functions.
+2.Introduces risk management: overcollateralization and liquidation.
 
 
-Inspired by Web3 login solutions like MetaMask authentication.
+3.Directly related to DeFi protocols like Aave and Compound.
 
-# RESULT: 
+# OUTPUT:
+### Deploy:
+![alt text](<Screenshot 2025-04-28 140112.png>)
+### Deposit:
+![alt text](<Screenshot 2025-04-28 142127.png>)
+### Borrow:
+![alt text](<Screenshot 2025-04-28 142148.png>)
+### Collateral:
+![alt text](<Screenshot 2025-04-28 142217.png>)
+# RESULT : 
+Thus, a DeFi Lending and Borrowing Protocol has been successfully built and implenmented on Remix - Ethereum IDE
